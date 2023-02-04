@@ -10,4 +10,3 @@ for i in range(num_nodes):
             graph[i][j] = weight
             graph[j][i] = weight
 
-print(graph)
