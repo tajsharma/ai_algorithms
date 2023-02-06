@@ -46,7 +46,7 @@ def aStar(m):
     return fwdPath
 
 if __name__=='__main__':
-    m=maze(20,20)
+    m=maze(10,10)
     m.CreateMaze()
     path=aStar(m)
 
