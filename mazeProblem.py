@@ -3,14 +3,14 @@ from queue import PriorityQueue
 def h(cell1,cell2):
     x1,y1=cell1
     x2,y2=cell2
+    return abs(x1-x2) + abs(y1-y2)#returns manhattan distance for 2 points 
 
-    return abs(x1-x2) + abs(y1-y2)
 def aStar(m):
     start=(m.rows,m.cols)
-    g_score={cell:float('inf') for cell in m.grid}
-    g_score[start]=0
-    f_score={cell:float('inf') for cell in m.grid}
-    f_score[start]=h(start,(1,1))
+    g_score={cell:float('inf') for cell in m.grid} #sets g score for all nodes to inf at the start
+    g_score[start]=0                               #sets the starting node path cost to 0
+    f_score={cell:float('inf') for cell in m.grid} #sets f score to infinite for all the nodes
+    f_score[start]=h(start,(1,1))    #sets the f score for the start node to the f(n) = g(n) +h(n)
 
     open=PriorityQueue()
     open.put((h(start,(1,1)),h(start,(1,1)),start))
@@ -46,7 +46,7 @@ def aStar(m):
     return fwdPath
 
 if __name__=='__main__':
-    m=maze(5,5)
+    m=maze(20,20)
     m.CreateMaze()
     path=aStar(m)
 
