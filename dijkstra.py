@@ -1,13 +1,8 @@
-import random
-
-num_nodes = 5
-graph = [[0 for _ in range(num_nodes)] for _ in range(num_nodes)]
-
-for i in range(num_nodes):
-    for j in range(i, num_nodes):
-        if i != j:
-            weight = random.randint(1, 25)
-            graph[i][j] = weight
-            graph[j][i] = weight
-
-print(graph)
+tree = {
+    'S': [['A',2],['B',4], ['D',7]],
+    'A': [['S',2],['D',4]],
+    'B': [['S',4],['C',2],['E',1]],
+    'C': [['B',2],['E',1],['D',1]],
+    'D': [['S',7],['A',4],['C',1],['G',3]],
+    'E': [['B',1],['C',1],['G',1]]
+    }
